@@ -1,4 +1,3 @@
-from pathlib import Path
 from flask import Flask  ,render_template
 from blueprints import register_blueprints
 
@@ -16,11 +15,6 @@ from utils.json_storage import initialize_storage
 
 def initialize_app(app):
     initialize_storage(app.config["JSON_FILES"])
-    
-    Path(app.config["LOG_FOLDER"]).mkdir(
-        parents=True,
-        exist_ok=True,
-    )
 
 def create_app():
     app = Flask(__name__)
