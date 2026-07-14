@@ -1,0 +1,38 @@
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".custom-navbar");
+
+  if (!navbar) return;
+
+  if (window.scrollY > 50) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sortBtn = document.getElementById("sort-rooms-btn");
+  const container = document.getElementById("rooms-list-container");
+  if (!sortBtn || !container) return;
+
+  let isAscending = true;
+
+  sortBtn.addEventListener("click", function () {
+    const items = Array.from(container.getElementsByClassName("room-card-item"));
+    if (items.length === 0) return;
+
+    items.sort((a, b) => {
+      const nameA = a.getAttribute("data-room-name") || "";
+      const nameB = b.getAttribute("data-room-name") || "";
+      return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    });
+
+
+    document.getElementById("sort-icon-symbol").textContent = isAscending ? "🔽" : "🔼";
+    document.getElementById("sort-direction-label").textContent = isAscending ? "Sort: A → Z" : "Sort: Z → A";
+
+    items.forEach((item) => container.appendChild(item));
+
+    isAscending = !isAscending;
+  });
+});
