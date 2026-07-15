@@ -1,16 +1,26 @@
 {% extends "layouts/base.html" %} {% block title %} {{ room.room_name }} {% endblock %} {% block content %} {% include
 "components/navbar.html" %}
 <div class="container py-5 rooms-container-offset">
-  <a class="btn btn-success mb-3 p-2" href="{{ url_for('rooms.index') }}"> Back</a>
+  <a class="btn btn-success mb-3 p-2" href="{{ url_for('rooms.index') }}">
+    <i class="fa-solid fa-left-long me-2"></i>
+  </a>
   <!-- Room Header -->
   <div class="card shadow-sm mb-4">
     <div class="card-body text-center">
       <h2>{{ room.room_name }}</h2>
 
-      <h3 class="my-3">
-        {{ room.home_team }}
-        <span class="text-success mx-3">VS</span>
-        {{ room.away_team }}
+      <h3 class="match-header my-3">
+        <div class="team-content">
+          <img src="{{ room.home_logo }}" alt="{{ room.home_team }}" class="teams-icon" />
+          <span>{{ room.home_team }}</span>
+        </div>
+
+        <span class="vs-text">VS</span>
+
+        <div class="team-content">
+          <img src="{{ room.away_logo }}" alt="{{ room.away_team }}" class="teams-icon" />
+          <span>{{ room.away_team }}</span>
+        </div>
       </h3>
 
       <p class="text-muted">

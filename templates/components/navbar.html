@@ -8,28 +8,20 @@
 
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav ms-auto">
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('rooms.index') }}"> Rooms </a>
-        </li> -->
-
         {% if session.get("user_id") %}
 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('dashboard.home') }}"> Dashboard </a>
-        </li>
-
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('profile.profile') }}"> Profile </a>
-        </li> -->
-
-        <li class="nav-item">
-          <a class="btn btn-danger ms-3" href="{{ url_for('auth.logout') }}"> Logout </a>
+          <a class="btn btn-danger ms-3" href="{{ url_for('auth.logout') }}">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
         </li>
 
         {% else %}
 
         <li class="nav-item">
-          <a class="btn btn-success" href="{{ url_for('auth.login') }}"> Login </a>
+          <a class="btn btn-success" href="{{ url_for('auth.login') }}"
+            ><i class="fa-solid fa-right-from-bracket"></i> Login
+          </a>
         </li>
 
         {% endif %}

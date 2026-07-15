@@ -98,4 +98,53 @@ body {
 /* --- Rooms Layout Offsets --- */
 .rooms-container-offset {
   margin-top: 100px;
-}
+}
+
+
+
+.teams-img-container{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;  
+}
+
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.team-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.teams-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.vs-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.match-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+
+

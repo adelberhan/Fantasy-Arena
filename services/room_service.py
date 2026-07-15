@@ -2,7 +2,7 @@ from config import Config
 
 from models.room import Room
 
-from services.room_logger import log
+# from services.room_logger import log
 
 from utils.helpers import (
     current_timestamp,
@@ -19,6 +19,7 @@ from utils.validators import (
     validate_room_name,
     validate_team_name,
 )
+
 
 
 def parse_score(value):
@@ -133,10 +134,10 @@ def create_room(
         rooms,
     )
 
-    log(
-        room.room_code,
-        "Room created.",
-    )
+    # log(
+    #     room.room_code,
+    #     "Room created.",
+    # )
 
     return room
 
@@ -181,23 +182,33 @@ def update_room_for_owner(room_code, user_id, form):
 
         if saved_room["room_code"] == room_code:
 
+            new_deadline = Room.calculate_deadline(
+                room_data["match_datetime"]
+            )
+            deadline_changed = saved_room.get("deadline") != new_deadline
+
             saved_room["room_name"] = room_data["room_name"]
             saved_room["home_team"] = room_data["home_team"]
             saved_room["away_team"] = room_data["away_team"]
             saved_room["home_logo"] = room_data["home_logo"]
             saved_room["away_logo"] = room_data["away_logo"]
             saved_room["match_datetime"] = room_data["match_datetime"]
-            saved_room["deadline"] = Room.calculate_deadline(
-                room_data["match_datetime"]
-            )
+            saved_room["deadline"] = new_deadline
             saved_room["updated_at"] = current_timestamp()
+
+            if deadline_changed:
+                saved_room["home_score"] = None
+                saved_room["away_score"] = None
+                
+                from services.prediction_service import reset_prediction_points
+                reset_prediction_points(saved_room["id"])
 
             save_json(
                 Config.JSON_FILES["rooms"],
                 rooms,
             )
 
-            log(room_code, "Room details updated.")
+            # log(room_code, "Room details updated.")
 
             return True, "Room updated successfully.", Room.from_dict(saved_room)
 
@@ -239,7 +250,7 @@ def delete_room_for_owner(room_code, user_id):
         predictions,
     )
 
-    log(room_code, "Room deleted.")
+    # log(room_code, "Room deleted.")
 
     return True, "Room deleted successfully.", room
 
@@ -269,7 +280,7 @@ def save_match_result(
                 rooms,
             )
 
-            log(room_code, f"Final result: {home_score}-{away_score}")
+            # log(room_code, f"Final result: {home_score}-{away_score}")
 
             return True
 

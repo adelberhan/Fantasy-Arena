@@ -1,46 +1,46 @@
-from pathlib import Path
+# from pathlib import Path
 
-from config import Config
+# from config import Config
 
-from utils.helpers import current_timestamp
-
-
-def log(room_code, message):
-    """Write room activity."""
-
-    log_file = Path(Config.LOG_FOLDER) / f"{room_code}.txt"
-
-    with open(
-        log_file,
-        "a",
-        encoding="utf-8",
-    ) as file:
-
-        file.write(
-            f"[{current_timestamp()}] {message}\n"
-        )
+# from utils.helpers import current_timestamp
 
 
-def get_room_logs(room_code):
-    """Return newest room activity entries first."""
+# def log(room_code, message):
+#     """Write room activity."""
 
-    log_file = Path(Config.LOG_FOLDER) / f"{room_code}.txt"
+#     log_file = Path(Config.LOG_FOLDER) / f"{room_code}.txt"
 
-    if not log_file.exists():
-        return []
+#     with open(
+#         log_file,
+#         "a",
+#         encoding="utf-8",
+#     ) as file:
 
-    with open(
-        log_file,
-        "r",
-        encoding="utf-8",
-    ) as file:
+#         file.write(
+#             f"[{current_timestamp()}] {message}\n"
+#         )
 
-        entries = [
-            line.strip()
-            for line in file
-            if line.strip()
-        ]
 
-    entries.reverse()
+# def get_room_logs(room_code):
+#     """Return newest room activity entries first."""
 
-    return entries
+#     log_file = Path(Config.LOG_FOLDER) / f"{room_code}.txt"
+
+#     if not log_file.exists():
+#         return []
+
+#     with open(
+#         log_file,
+#         "r",
+#         encoding="utf-8",
+#     ) as file:
+
+#         entries = [
+#             line.strip()
+#             for line in file
+#             if line.strip()
+#         ]
+
+#     entries.reverse()
+
+#     return entries

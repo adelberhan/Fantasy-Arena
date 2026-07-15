@@ -1,9 +1,17 @@
 [
     {
-        "id": "c556b33bcbf74eab93002fea7779c98e",
-        "room_id": "2a0d2c1000684992b35d79014e3ceeb4",
+        "id": "e0d6a2a13a4c472a8d9fd7c0f9178dc0",
+        "room_id": "11c9c64b05284d48aace1d0c8f0c9af3",
         "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
         "home_prediction": 2,
+        "away_prediction": 6,
+        "earned_points": 0
+    },
+    {
+        "id": "b6480375834d446ca3fa52f976c84af3",
+        "room_id": "f7038cce99de4f7eb5267d9ba0761870",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 1,
         "away_prediction": 4,
         "earned_points": 5
     }

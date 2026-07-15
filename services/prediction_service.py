@@ -2,7 +2,7 @@ from config import Config
 
 from models.prediction import Prediction
 
-from services.room_logger import log
+# from services.room_logger import log
 from services.room_service import get_room_by_code, get_room_by_id, parse_score
 
 from utils.helpers import generate_id
@@ -76,10 +76,10 @@ def save_prediction(
 
             room = get_room_by_id(room_id)
 
-            log(
-                room.room_code,
-                f"User {user_id} updated prediction.",
-            )
+            # log(
+            #     room.room_code,
+            #     f"User {user_id} updated prediction.",
+            # )
 
             return
 
@@ -101,10 +101,10 @@ def save_prediction(
 
     room = get_room_by_id(room_id)
 
-    log(
-        room.room_code,
-        f"User {user_id} submitted prediction.",
-    )
+    # log(
+    #     room.room_code,
+    #     f"User {user_id} submitted prediction.",
+    # )
 
 
 def calculate_points(
@@ -185,10 +185,10 @@ def update_predictions_points(
 
         room = get_room_by_id(room_id)
 
-        log(
-            room.room_code,
-            f"Points calculated for {updated_count} prediction(s).",
-        )
+        # log(
+        #     room.room_code,
+        #     f"Points calculated for {updated_count} prediction(s).",
+        # )
 
     return updated_count
 
@@ -225,3 +225,27 @@ def get_room_leaderboard(room_id):
     )
 
     return leaderboard
+
+
+def reset_prediction_points(room_id):
+    """Reset all prediction points to 0 for a room."""
+
+    predictions = load_json(Config.JSON_FILES["predictions"])
+
+    updated = False
+
+    for prediction in predictions:
+
+        if prediction["room_id"] == room_id:
+
+            prediction["earned_points"] = 0
+
+            updated = True
+
+    if updated:
+
+        save_json(
+            Config.JSON_FILES["predictions"],
+            predictions,
+        )
+
