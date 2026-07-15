@@ -4,7 +4,7 @@
 .hero {
   height: 100vh;
   /* اختصار خواص الخلفية في سطر واحد */
-  background: url("../images/Anfield-Stadium.webp") center/cover no-repeat;
+  background: url("../images/Camp-nou-4.webp") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
