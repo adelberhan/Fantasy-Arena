@@ -2,84 +2,46 @@
 <div class="d-flex align-items-center justify-content-between mt-5 mb-2 border-bottom pb-2">
   <h4 class="mb-0 fw-bold">Prediction Rooms</h4>
   <button id="sort-rooms-btn" class="btn btn-outline-success btn-sm d-flex align-items-center gap-1">
-    <span id="sort-icon-symbol">↕️</span>
+    <span id="sort-icon-symbol">
+      <i data-lucide="arrow-up-down"></i>
+    </span>
     <span id="sort-direction-label">Sort: Default</span>
   </button>
 </div>
 
 <div class="row mt-3" id="rooms-list-container">
+  {% for room in rooms %}
 
-    {% for room in rooms %}
+  <div class="col-lg-4 col-md-6 mb-4 room-card-item" data-room-name="{{ room.room_name }}">
+    <div class="room-card">
+      <div class="room-card-header">
+        <span> {{ room.home_team }} </span>
 
-        <div class="col-lg-4 col-md-6 mb-4 room-card-item" data-room-name="{{ room.room_name }}">
+        <span>VS</span>
 
-            <div class="room-card">
+        <span> {{ room.away_team }} </span>
+      </div>
 
-                <div class="room-card-header">
+      <div class="room-card-body">
+        <p>{{ room.match_datetime }}</p>
 
-                    <span>
+        <p>
+          Room Code:
+          <strong> {{ room.room_code }} </strong>
+        </p>
+      </div>
 
-                        {{ room.home_team }}
+      <div class="room-card-footer">
+        <a href="{{ url_for('rooms.details', room_code=room.room_code) }}" class="btn btn-success w-100"> View Room </a>
+      </div>
+    </div>
+  </div>
 
-                    </span>
+  {% else %}
 
-                    <span>VS</span>
+  <div class="text-center mt-5 w-100">
+    <h4>No rooms available.</h4>
+  </div>
 
-                    <span>
-
-                        {{ room.away_team }}
-
-                    </span>
-
-                </div>
-
-                <div class="room-card-body">
-
-                    <p>
-
-                        {{ room.match_datetime }}
-
-                    </p>
-
-                    <p>
-
-                        Room Code:
-                        <strong>
-
-                            {{ room.room_code }}
-
-                        </strong>
-
-                    </p>
-
-                </div>
-
-                <div class="room-card-footer">
-
-                    <a
-                        href="{{ url_for('rooms.details', room_code=room.room_code) }}"
-                        class="btn btn-success w-100">
-
-                        View Room
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    {% else %}
-
-        <div class="text-center mt-5 w-100">
-
-            <h4>No rooms available.</h4>
-
-        </div>
-
-    {% endfor %}
-
+  {% endfor %}
 </div>
-
-

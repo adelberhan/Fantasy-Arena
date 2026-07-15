@@ -74,5 +74,28 @@ body {
   right: 0;
   left: 0;
   z-index: 1030;
-  background-color: #d0ebea !important;
+  background-color: #b4c8b1 !important;
 }
+
+
+.auth{
+  max-width: 500px !important;
+}
+
+/* --- Dashboard & Statistics --- */
+.stats-card {
+  border-radius: 15px;
+  background: linear-gradient(135deg, #198754, #146c43);
+  color: white;
+}
+
+.stats-card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* --- Rooms Layout Offsets --- */
+.rooms-container-offset {
+  margin-top: 100px;
+}

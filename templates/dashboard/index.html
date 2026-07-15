@@ -1,25 +1,18 @@
-{% extends "layouts/base.html" %}
-
-{% block title %}
-Home
-{% endblock %}
-
-{% block content %}
-
-{% include "components/navbar.html" %}
+{% extends "layouts/base.html" %} {% block title %} Home {% endblock %} {% block content %} {% include
+"components/navbar.html" %}
 
 <section class="rooms-page">
   <div class="container">
     <!-- Statistics Card -->
     <div class="row mb-4">
       <div class="col-12 col-md-4">
-        <div class="card shadow-sm border-0" style="border-radius: 15px; background: linear-gradient(135deg, #198754, #146c43); color: white;">
+        <div class="card shadow-sm border-0 stats-card">
           <div class="card-body p-4 d-flex align-items-center justify-content-between">
             <div>
-              <h6 class="text-white-50 text-uppercase mb-1" style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Your Total Points</h6>
-              <h2 class="mb-0 fw-bold">{{ statistics.total_points }} pts</h2>
+              <h6 class="text-white-50 text-uppercase mb-1 stats-card-title">Your Total Points</h6>
+              <h2 class="mb-0 fw-bold text-white">{{ statistics.total_points }} pts</h2>
             </div>
-            <div class="fs-1">🏆</div>
+            <i class="fa-solid fa-trophy text-warning fs-1"></i>
           </div>
         </div>
       </div>

@@ -27,9 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
     });
 
+    // document.getElementById("sort-icon-symbol").textContent = isAscending ? "🔽" : "🔼";
+    // document.getElementById("sort-direction-label").textContent = isAscending ? "Sort: A → Z" : "Sort: Z → A";
 
-    document.getElementById("sort-icon-symbol").textContent = isAscending ? "🔽" : "🔼";
+    const icon = document.getElementById("sort-icon-symbol");
+    icon.innerHTML = isAscending ? '<i data-lucide="arrow-down-a-z"></i>' : '<i data-lucide="arrow-up-a-z"></i>';
+
+    lucide.createIcons();
+
     document.getElementById("sort-direction-label").textContent = isAscending ? "Sort: A → Z" : "Sort: Z → A";
+    lucide.createIcons();
 
     items.forEach((item) => container.appendChild(item));
 

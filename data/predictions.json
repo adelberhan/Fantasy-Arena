@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "id": "c556b33bcbf74eab93002fea7779c98e",
+        "room_id": "2a0d2c1000684992b35d79014e3ceeb4",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 2,
+        "away_prediction": 4,
+        "earned_points": 5
+    }
+]

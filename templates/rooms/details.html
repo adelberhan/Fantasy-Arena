@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %} {% block title %} {{ room.room_name }} {% endblock %} {% block content %} {% include
 "components/navbar.html" %}
-<div class="container py-5" style="margin-top: 100px">
+<div class="container py-5 rooms-container-offset">
   <a class="btn btn-success mb-3 p-2" href="{{ url_for('rooms.index') }}"> Back</a>
   <!-- Room Header -->
   <div class="card shadow-sm mb-4">
