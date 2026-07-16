@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
     });
 
-    // document.getElementById("sort-icon-symbol").textContent = isAscending ? "🔽" : "🔼";
-    // document.getElementById("sort-direction-label").textContent = isAscending ? "Sort: A → Z" : "Sort: Z → A";
-
     const icon = document.getElementById("sort-icon-symbol");
     icon.innerHTML = isAscending ? '<i data-lucide="arrow-down-a-z"></i>' : '<i data-lucide="arrow-up-a-z"></i>';
 
@@ -43,3 +40,27 @@ document.addEventListener("DOMContentLoaded", function () {
     isAscending = !isAscending;
   });
 });
+
+
+
+// Localstorage username retrieval and display
+const usernameElement = document.getElementById("username");
+
+if (usernameElement) {
+  const username =
+    usernameElement.dataset.username ||
+    localStorage.getItem("username");
+
+  if (username) {
+    usernameElement.textContent = username;
+  }
+}
+
+
+const logoutButton = document.getElementById("logout-button");
+if (logoutButton) {
+  logoutButton.addEventListener("click", function () {
+    localStorage.removeItem("username");
+    location.reload();
+  });
+}

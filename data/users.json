@@ -26,5 +26,12 @@
         "password": "scrypt:32768:8:1$2O2RhU6P5EolN1Dc$52200617e11d3188f8737d42f6a03aff92c85044c70462864a72843d2ace265d5123e97a6ecb7b01301265426e2dd04462acb2661669ebb4e099a038ec34e92f",
         "created_at": "2026-07-13T10:42:25",
         "updated_at": "2026-07-13T10:42:25"
+    },
+    {
+        "id": "51f0c42bd4b54eee96f242a9a19e25e4",
+        "username": "sasa",
+        "password": "scrypt:32768:8:1$sy7SSAt46VBi9avo$91c97e2aaef1458794272053642097e44f5138a0c57eccdbaaa059b7c50a4be8f5bd0710f9a39441c0974bbfdb236d8740e244b8b2ba76efaea896aba66eb466",
+        "created_at": "2026-07-16T11:28:46",
+        "updated_at": "2026-07-16T11:28:46"
     }
 ]
