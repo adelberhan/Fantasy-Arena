@@ -25,6 +25,9 @@
       <div class="room-card-body">
         <div class="teams-img-container">
           <img src="{{room.home_logo}}" alt="" class="teams-icon" />
+          {% if room.home_score is not none and room.away_score is not none %}
+          <span class="score"> {{ room.home_score }} - {{ room.away_score }} </span>
+          {% endif %}
           <img src="{{room.away_logo}}" alt="" class="teams-icon" />
         </div>
 
@@ -36,8 +39,7 @@
           <span class="badge bg-danger">Deadline Passed</span>
           {% else %}
           <span class="badge bg-primary">Open</span>
-          {% endif %}
-          <p>{{ room.match_datetime }}</p>
+          {% endif %} {{ room.match_datetime_obj.strftime("%d %b %Y, %I:%M %p") }}
         </div>
       </div>
 

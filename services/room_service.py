@@ -21,7 +21,6 @@ from utils.validators import (
 )
 
 
-
 def parse_score(value):
     """Return a non-negative score or None."""
 
@@ -87,14 +86,18 @@ def validate_room_form(form):
     except (TypeError, ValueError):
         return False, "Match date or time is invalid.", None
 
-    return True, "", {
-        "room_name": room_name,
-        "home_team": home_team,
-        "away_team": away_team,
-        "home_logo": form.get("home_logo", "").strip(),
-        "away_logo": form.get("away_logo", "").strip(),
-        "match_datetime": match_datetime,
-    }
+    return (
+        True,
+        "",
+        {
+            "room_name": room_name,
+            "home_team": home_team,
+            "away_team": away_team,
+            "home_logo": form.get("home_logo", "").strip(),
+            "away_logo": form.get("away_logo", "").strip(),
+            "match_datetime": match_datetime,
+        },
+    )
 
 
 def create_room(
@@ -133,11 +136,6 @@ def create_room(
         Config.JSON_FILES["rooms"],
         rooms,
     )
-
-    # log(
-    #     room.room_code,
-    #     "Room created.",
-    # )
 
     return room
 
@@ -182,9 +180,7 @@ def update_room_for_owner(room_code, user_id, form):
 
         if saved_room["room_code"] == room_code:
 
-            new_deadline = Room.calculate_deadline(
-                room_data["match_datetime"]
-            )
+            new_deadline = Room.calculate_deadline(room_data["match_datetime"])
             deadline_changed = saved_room.get("deadline") != new_deadline
 
             saved_room["room_name"] = room_data["room_name"]
@@ -199,8 +195,9 @@ def update_room_for_owner(room_code, user_id, form):
             if deadline_changed:
                 saved_room["home_score"] = None
                 saved_room["away_score"] = None
-                
+
                 from services.prediction_service import reset_prediction_points
+
                 reset_prediction_points(saved_room["id"])
 
             save_json(
@@ -229,16 +226,10 @@ def delete_room_for_owner(room_code, user_id):
     rooms = load_json(Config.JSON_FILES["rooms"])
     predictions = load_json(Config.JSON_FILES["predictions"])
 
-    rooms = [
-        saved_room
-        for saved_room in rooms
-        if saved_room["room_code"] != room_code
-    ]
+    rooms = [saved_room for saved_room in rooms if saved_room["room_code"] != room_code]
 
     predictions = [
-        prediction
-        for prediction in predictions
-        if prediction["room_id"] != room.id
+        prediction for prediction in predictions if prediction["room_id"] != room.id
     ]
 
     save_json(
@@ -348,11 +339,6 @@ def get_room_by_id(room_id):
 def get_all_rooms():
     """Return all rooms."""
 
-    rooms = load_json(
-        Config.JSON_FILES["rooms"]
-    )
+    rooms = load_json(Config.JSON_FILES["rooms"])
 
-    return [
-        Room.from_dict(room)
-        for room in rooms
-    ]
+    return [Room.from_dict(room) for room in rooms]

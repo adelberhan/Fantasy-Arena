@@ -84,3 +84,8 @@
   background-color: white;
   color: #111 !important;
 }
+
+.btn-warning:hover ,.btn-success:hover,img:hover {
+  opacity: 0.7; 
+  transition: opacity 0.3s ease;
+}

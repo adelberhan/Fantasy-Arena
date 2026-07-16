@@ -20,19 +20,19 @@ def get_dashboard_statistics(user_id):
             "username": "Unknown user",
             "global_points": 0,
             "created_rooms": 0,
-            "joined_rooms": 0,
+            # "joined_rooms": 0,
             "total_points": 0,
         }
 
-    created_rooms = sum(
-        room["owner_id"] == user_id
-        for room in rooms
-    )
+    # created_rooms = sum(
+    #     room["owner_id"] == user_id
+    #     for room in rooms
+    # )
 
-    joined_rooms = sum(
-        prediction["user_id"] == user_id
-        for prediction in predictions
-    )
+        # joined_rooms = sum(
+        #     prediction["user_id"] == user_id
+        #     for prediction in predictions
+        # )
 
     total_points = sum(
         prediction.get("earned_points", 0)
@@ -43,7 +43,7 @@ def get_dashboard_statistics(user_id):
     return {
         "username": user["username"],
         "global_points": user.get("global_points", 0),
-        "created_rooms": created_rooms,
-        "joined_rooms": joined_rooms,
+        # "created_rooms": created_rooms,
+        # "joined_rooms": joined_rooms,
         "total_points": total_points,
     }
