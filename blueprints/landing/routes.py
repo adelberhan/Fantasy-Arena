@@ -20,15 +20,3 @@ def index():
     return render_template(
         "landing/index.html"
     )
-
-# from flask import render_template
-
-# from . import landing_bp
-
-
-# @landing_bp.route("/")
-# def index():
-
-#     return render_template(
-#         "landing/index.html"
-#     )

@@ -249,3 +249,40 @@ def reset_prediction_points(room_id):
             predictions,
         )
 
+
+def get_global_leaderboard():
+    """Return a list of users ranked by total points across all prediction rooms."""
+
+    predictions = load_json(Config.JSON_FILES["predictions"])
+    users = load_json(Config.JSON_FILES["users"])
+
+    if not predictions:
+        return []
+
+    # Sum points per user_id
+    user_points = {}
+    for pred in predictions:
+        uid = pred.get("user_id")
+        user_points[uid] = user_points.get(uid, 0) + pred.get("earned_points", 0)
+
+    leaderboard_list = []
+    for u in users:
+        uid = u["id"]
+        if uid in user_points:
+            leaderboard_list.append({
+                "user_id": uid,
+                "username": u["username"],
+                "total_points": user_points[uid]
+            })
+
+    # Sort descending by total_points. Since Python's sort is stable,
+    # the original users order (as loaded from users.json) will be maintained for ties.
+    leaderboard_list.sort(key=lambda x: x["total_points"], reverse=True)
+
+    # Assign rank
+    for index, entry in enumerate(leaderboard_list):
+        entry["rank"] = index + 1
+
+    return leaderboard_list
+
+

@@ -16,6 +16,7 @@ from services.room_service import (
     save_result_for_owner,
     update_room_for_owner,
 )
+
 # from services.room_logger import get_room_logs
 
 from utils.decorators import login_required
@@ -87,8 +88,9 @@ def details(room_code):
         room=room,
         leaderboard=leaderboard,
         existing_prediction=existing_prediction,
-        # activity_logs=activity_logs,
     )
+
+
 @rooms_bp.route(
     "/<room_code>/result",
     methods=["POST"],
@@ -208,3 +210,4 @@ def delete(room_code):
             room_code=room.room_code,
         )
     )
+

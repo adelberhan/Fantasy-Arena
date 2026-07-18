@@ -66,3 +66,20 @@ if (logoutButton) {
 }
 
 
+// Search functionality
+const searchInput = document.getElementById("search-input");
+const roomCards = document.querySelectorAll(".room-card-item");
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    roomCards.forEach((card) => {
+      const roomName = card.getAttribute("data-room-name").toLowerCase();
+      if (roomName.includes(searchTerm)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+}

@@ -6,15 +6,17 @@
     <!-- Statistics Card -->
     <div class="row mb-4">
       <div class="col-12 col-md-4">
-        <div class="card shadow-sm border-0 stats-card">
-          <div class="card-body p-4 d-flex align-items-center justify-content-between">
-            <div>
-              <h6 class="text-white-50 text-uppercase mb-1 stats-card-title">Your Total Points</h6>
-              <h2 class="mb-0 fw-bold text-white">{{ statistics.total_points }} pts</h2>
+        <a href="{{ url_for('leaderboard.leaderboard') }}">
+          <div class="card shadow-sm border-0 stats-card">
+            <div class="card-body p-4 d-flex align-items-center justify-content-between">
+              <div>
+                <h6 class="text-white-50 text-uppercase mb-1 stats-card-title">Your Total Points</h6>
+                <h2 class="mb-0 fw-bold text-white">{{ statistics.total_points }} pts</h2>
+              </div>
+              <i class="fa-solid fa-trophy text-warning fs-1"></i>
             </div>
-            <i class="fa-solid fa-trophy text-warning fs-1"></i>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
