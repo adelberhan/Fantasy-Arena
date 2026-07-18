@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 class Config:
     SECRET_KEY = "football_prediction_secret_key"
     DATA_FOLDER = BASE_DIR / "data"
-    LOG_FOLDER = BASE_DIR / "logs"
+    # LOG_FOLDER = BASE_DIR / "logs"
 
     JSON_FILES = {
         "users": DATA_FOLDER / "users.json",

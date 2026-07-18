@@ -85,3 +85,7 @@ class Room:
         )
 
         return datetime.now() >= match_time
+
+    @property
+    def match_datetime_obj(self):
+        return datetime.fromisoformat(self.match_datetime)

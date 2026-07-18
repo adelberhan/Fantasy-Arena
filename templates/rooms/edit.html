@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %} {% block title %} Edit Room {% endblock %} {% block content %} {% include
+"components/navbar.html" %}
+
+<div class="container py-5 rooms-container-offset">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white">
+          <h3 class="mb-0">Edit Room</h3>
+        </div>
+
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label class="form-label"> Room Name </label>
+
+              <input type="text" name="room_name" class="form-control" value="{{ room.room_name }}" required />
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Home Team </label>
+
+                <input type="text" name="home_team" class="form-control" value="{{ room.home_team }}" required />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Away Team </label>
+
+                <input type="text" name="away_team" class="form-control" value="{{ room.away_team }}" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Home Team Logo </label>
+
+                <input type="url" name="home_logo" class="form-control" value="{{ room.home_logo }}" placeholder="https://" />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Away Team Logo </label>
+
+                <input type="url" name="away_logo" class="form-control" value="{{ room.away_logo }}" placeholder="https://" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Match Date </label>
+
+                <input type="date" name="match_date" class="form-control" value="{{ room.match_datetime[:10] }}" required />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Match Time </label>
+
+                <input type="time" name="match_time" class="form-control" value="{{ room.match_datetime[11:16] }}" required />
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <a href="{{ url_for('rooms.details', room_code=room.room_code) }}" class="btn btn-secondary me-2"> Cancel </a>
+
+              <button type="submit" class="btn btn-success">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

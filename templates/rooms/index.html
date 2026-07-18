@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %} {% block title %} Rooms {% endblock %} {% block content %} {% include
+"components/navbar.html" %}
+
+<section class="rooms-page">
+  <div class="container">
+    <div class="rooms-header">
+      <div>
+        <h1>Football Rooms</h1>
+
+        <p>Predict matches or create your own challenge.</p>
+      </div>
+
+      {% if session.get("user_id") %}
+
+      <div>
+        <a href="{{ url_for('rooms.create') }}" class="btn btn-success"> Create Room </a>
+      </div>
+
+      {% endif %}
+    </div>
+
+    {% include "rooms/_room_list.html" %}
+  </div>
+</section>
+
+{% endblock %}

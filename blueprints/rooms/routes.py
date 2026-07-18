@@ -16,7 +16,8 @@ from services.room_service import (
     save_result_for_owner,
     update_room_for_owner,
 )
-from services.room_logger import get_room_logs
+
+# from services.room_logger import get_room_logs
 
 from utils.decorators import login_required
 
@@ -80,15 +81,16 @@ def details(room_code):
 
     leaderboard = get_room_leaderboard(room.id)
     existing_prediction = get_prediction(room.id, session["user_id"])
-    activity_logs = get_room_logs(room.room_code)
+    # activity_logs = get_room_logs(room.room_code)
 
     return render_template(
         "rooms/details.html",
         room=room,
         leaderboard=leaderboard,
         existing_prediction=existing_prediction,
-        activity_logs=activity_logs,
     )
+
+
 @rooms_bp.route(
     "/<room_code>/result",
     methods=["POST"],
@@ -208,3 +210,4 @@ def delete(room_code):
             room_code=room.room_code,
         )
     )
+

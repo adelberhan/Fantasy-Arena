@@ -27,12 +27,59 @@ document.addEventListener("DOMContentLoaded", function () {
       return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
     });
 
+    const icon = document.getElementById("sort-icon-symbol");
+    icon.innerHTML = isAscending ? '<i data-lucide="arrow-down-a-z"></i>' : '<i data-lucide="arrow-up-a-z"></i>';
 
-    document.getElementById("sort-icon-symbol").textContent = isAscending ? "🔽" : "🔼";
+    lucide.createIcons();
+
     document.getElementById("sort-direction-label").textContent = isAscending ? "Sort: A → Z" : "Sort: Z → A";
+    lucide.createIcons();
 
     items.forEach((item) => container.appendChild(item));
 
     isAscending = !isAscending;
   });
 });
+
+
+
+// Localstorage username retrieval and display
+const usernameElement = document.getElementById("username");
+
+if (usernameElement) {
+  const username =
+    usernameElement.dataset.username ||
+    localStorage.getItem("username");
+
+  if (username) {
+    usernameElement.textContent = username;
+  }
+}
+
+
+const logoutButton = document.getElementById("logout-button");
+if (logoutButton) {
+  logoutButton.addEventListener("click", function () {
+    localStorage.removeItem("username");
+    location.reload();
+  });
+}
+
+
+// Search functionality
+const searchInput = document.getElementById("search-input");
+const roomCards = document.querySelectorAll(".room-card-item");
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    roomCards.forEach((card) => {
+      const roomName = card.getAttribute("data-room-name").toLowerCase();
+      if (roomName.includes(searchTerm)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+}

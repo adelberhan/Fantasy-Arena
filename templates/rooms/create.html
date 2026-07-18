@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %} {% block title %} Create Room {% endblock %} {% block content %} {% include
+"components/navbar.html" %}
+
+<div class="container py-5 rooms-container-offset">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white">
+          <h3 class="mb-0">Create New Room</h3>
+        </div>
+
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label class="form-label"> Room Name </label>
+
+              <input type="text" name="room_name" class="form-control" placeholder="Premier League Week 1" required />
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Home Team </label>
+
+                <input type="text" name="home_team" class="form-control" required />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Away Team </label>
+
+                <input type="text" name="away_team" class="form-control" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Home Team Logo </label>
+
+                <input type="url" name="home_logo" class="form-control" placeholder="https://" />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Away Team Logo </label>
+
+                <input type="url" name="away_logo" class="form-control" placeholder="https://" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Match Date </label>
+
+                <input type="date" name="match_date" class="form-control" required />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label"> Match Time </label>
+
+                <input type="time" name="match_time" class="form-control" required />
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <a href="{{ url_for('rooms.index') }}" class="btn btn-secondary me-2"> Cancel </a>
+
+              <button type="submit" class="btn btn-success">Create Room</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

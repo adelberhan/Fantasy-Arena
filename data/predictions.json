@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "id": "e0d6a2a13a4c472a8d9fd7c0f9178dc0",
+        "room_id": "11c9c64b05284d48aace1d0c8f0c9af3",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 2,
+        "away_prediction": 6,
+        "earned_points": 0
+    },
+    {
+        "id": "b6480375834d446ca3fa52f976c84af3",
+        "room_id": "f7038cce99de4f7eb5267d9ba0761870",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 1,
+        "away_prediction": 4,
+        "earned_points": 5
+    },
+    {
+        "id": "677d5e028eae4f798659c1534be83ee7",
+        "room_id": "be2eb32f4d164aac89228a87e370e229",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 3,
+        "away_prediction": 1,
+        "earned_points": 0
+    },
+    {
+        "id": "ee80e7856dba439fb69060784485e513",
+        "room_id": "be2eb32f4d164aac89228a87e370e229",
+        "user_id": "51f0c42bd4b54eee96f242a9a19e25e4",
+        "home_prediction": 1,
+        "away_prediction": 2,
+        "earned_points": 5
+    }
+]
