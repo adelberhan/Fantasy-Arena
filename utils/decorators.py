@@ -35,12 +35,6 @@ def guest_required(view):
     def wrapped_view(*args, **kwargs):
 
         if "user_id" in session:
-
-            flash(
-                "You are already logged in.",
-                "info",
-            )
-
             return redirect(url_for("dashboard.home"))
 
         return view(*args, **kwargs)
