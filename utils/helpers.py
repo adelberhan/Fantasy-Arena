@@ -27,3 +27,5 @@ def parse_match_datetime(match_date, match_time):
     return datetime.fromisoformat(f"{match_date}T{match_time}").isoformat(
         timespec="minutes"
     )
+
+

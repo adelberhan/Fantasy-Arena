@@ -46,8 +46,8 @@ def create_room_for_user(user_id, form):
     room = create_room(
         owner_id=user_id,
         room_name=room_data["room_name"],
-        home_team=room_data["home_team"],
-        away_team=room_data["away_team"],
+        home_team=room_data["home_team"].upper(),
+        away_team=room_data["away_team"].upper(),
         home_logo=room_data["home_logo"],
         away_logo=room_data["away_logo"],
         match_datetime=room_data["match_datetime"],
@@ -184,8 +184,8 @@ def update_room_for_owner(room_code, user_id, form):
             deadline_changed = saved_room.get("deadline") != new_deadline
 
             saved_room["room_name"] = room_data["room_name"]
-            saved_room["home_team"] = room_data["home_team"]
-            saved_room["away_team"] = room_data["away_team"]
+            saved_room["home_team"] = room_data["home_team"].upper()
+            saved_room["away_team"] = room_data["away_team"].upper()
             saved_room["home_logo"] = room_data["home_logo"]
             saved_room["away_logo"] = room_data["away_logo"]
             saved_room["match_datetime"] = room_data["match_datetime"]

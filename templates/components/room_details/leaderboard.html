@@ -1,0 +1,35 @@
+<div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header">Leaderboard</div>
+
+        <div class="card-body">
+          {% if leaderboard %}
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for player in leaderboard %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ player.username }}</td>
+                <td>{{ player.room_points }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          {% else %}
+
+          <p>No predictions submitted yet.</p>
+
+          {% endif %}
+        </div>
+      </div>
+    </div>

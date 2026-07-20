@@ -24,11 +24,17 @@
 
       <div class="room-card-body">
         <div class="teams-img-container">
-          <img src="{{room.home_logo}}" alt="" class="teams-icon" />
+          <div class="d-flex flex-column align-items-center">
+            <img src="{{room.home_logo}}" alt="" class="teams-icon" />
+            <strong>{{ room.home_team }}</strong>
+          </div>
           {% if room.home_score is not none and room.away_score is not none %}
           <span class="score"> {{ room.home_score }} - {{ room.away_score }} </span>
           {% endif %}
-          <img src="{{room.away_logo}}" alt="" class="teams-icon" />
+          <div class="d-flex flex-column align-items-center">
+            <img src="{{room.away_logo}}" alt="" class="teams-icon" />
+            <strong>{{ room.away_team }}</strong>
+          </div>
         </div>
 
         <div class="card-header d-flex justify-content-between align-items-center">

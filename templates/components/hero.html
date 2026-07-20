@@ -6,9 +6,7 @@
 
       <div class="hero-buttons">
         <a href="{{ url_for('rooms.index') }}" class="btn btn-warning">View Rooms</a>
-        {% if session.get('user_id') %}
-        <a href="{{ url_for('rooms.create') }}" class="btn btn-secondary">Create Room</a>
-        {% else %}
+        {% if not session.get('user_id') %}
         <a href="{{ url_for('auth.login') }}" class="btn btn-success">Login/Register</a>
         {% endif %}
       </div>
