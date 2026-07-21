@@ -1,101 +1,101 @@
 <div class="col-lg-6 mb-4">
-      <div class="card shadow-sm h-100">
-        {# Prediction status badge #}
-        <div class="card-header d-flex justify-content-between align-items-center">
-          <span>Prediction</span>
+  <div class="card shadow-sm h-100">
+    {# Prediction status badge #}
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span>Prediction</span>
 
-          {% if room.home_score is not none and room.away_score is not none %}
-          <span class="badge bg-success">Match Finished</span>
+      {% if room.home_score is not none and room.away_score is not none %}
+      <span class="badge bg-success">Match Finished</span>
 
-          {% elif room.prediction_closed() %}
-          <span class="badge bg-danger">Deadline Passed</span>
+      {% elif room.prediction_closed() %}
+      <span class="badge bg-danger">Deadline Passed</span>
 
-          {% else %}
-          <span class="badge bg-primary">Open</span>
-          {% endif %}
-        </div>
-
-        <div class="card-body">
-          <!-- Match result is available -->
-          {% if room.home_score is not none and room.away_score is not none %}
-
-          <div class="text-center py-3">
-            <h5 class="text-success mb-3">Match Finished</h5>
-
-            <p class="fs-4 fw-bold">
-              Result: {{ room.home_team }} {{ room.home_score }} - {{ room.away_score }} {{ room.away_team }}
-            </p>
-
-            {# Show user prediction and earned points #} {% if existing_prediction %}
-            <div class="p-3 bg-light rounded border border-success-subtle mt-3">
-              <p class="mb-1">
-                Your Prediction:
-                <strong>{{ existing_prediction.home_prediction }} - {{ existing_prediction.away_prediction }}</strong>
-              </p>
-
-              <p class="mb-0 text-success fw-bold">Points Earned: +{{ existing_prediction.earned_points }}</p>
-            </div>
-
-            {% else %}
-            <p class="text-muted mt-3">You did not submit a prediction for this room.</p>
-            {% endif %}
-          </div>
-
-          {# Prediction deadline has passed #} {% elif room.prediction_closed() %}
-
-          <div class="alert alert-warning border-warning-subtle text-center mb-4" role="alert">
-            <strong>Prediction deadline has passed.</strong><br />
-            Waiting for the room owner to publish the final result.
-          </div>
-
-          {% if existing_prediction %}
-          <div class="p-3 bg-light rounded border text-center">
-            <p class="mb-0">
-              Your Submitted Prediction:
-              <strong>{{ existing_prediction.home_prediction }} - {{ existing_prediction.away_prediction }}</strong>
-            </p>
-          </div>
-
-          {% else %}
-          <p class="text-muted text-center">You did not submit a prediction for this room.</p>
-          {% endif %} {# Prediction form while room is still open #} {% else %}
-
-          <form method="POST" action="{{ url_for('predictions.submit', room_code=room.room_code) }}">
-            <div class="row">
-              <div class="col">
-                <label class="form-label"> {{ room.home_team }} </label>
-
-                <input
-                  type="number"
-                  name="home_prediction"
-                  class="form-control"
-                  min="0"
-                  required
-                  value="{% if existing_prediction %}{{ existing_prediction.home_prediction }}{% endif %}"
-                />
-              </div>
-
-              <div class="col">
-                <label class="form-label"> {{ room.away_team }} </label>
-
-                <input
-                  type="number"
-                  name="away_prediction"
-                  class="form-control"
-                  min="0"
-                  required
-                  value="{% if existing_prediction %}{{ existing_prediction.away_prediction }}{% endif %}"
-                />
-              </div>
-            </div>
-
-            {# Save or update prediction #}
-            <button type="submit" class="btn btn-success mt-3 w-100">
-              {% if existing_prediction %} Update Prediction {% else %} Save Prediction {% endif %}
-            </button>
-          </form>
-
-          {% endif %}
-        </div>
-      </div>
+      {% else %}
+      <span class="badge bg-primary">Open</span>
+      {% endif %}
     </div>
+
+    <div class="card-body">
+      <!-- Match result is available -->
+      {% if room.home_score is not none and room.away_score is not none %}
+
+      <div class="text-center py-3">
+        <h5 class="text-success mb-3">Match Finished</h5>
+
+        <p class="fs-4 fw-bold">
+          Result: {{ room.home_team }} {{ room.home_score }} - {{ room.away_score }} {{ room.away_team }}
+        </p>
+
+        {# Show user prediction and earned points #} {% if existing_prediction %}
+        <div class="p-3 bg-light rounded border border-success-subtle mt-3">
+          <p class="mb-1">
+            Your Prediction:
+            <strong>{{ existing_prediction.home_prediction }} - {{ existing_prediction.away_prediction }}</strong>
+          </p>
+
+          <p class="mb-0 text-success fw-bold">Points Earned: +{{ existing_prediction.earned_points }}</p>
+        </div>
+
+        {% else %}
+        <p class="text-muted mt-3">You did not submit a prediction for this room.</p>
+        {% endif %}
+      </div>
+
+      {# Prediction deadline has passed #} {% elif room.prediction_closed() %}
+
+      <div class="alert alert-warning border-warning-subtle text-center mb-4" role="alert">
+        <strong>Prediction deadline has passed.</strong><br />
+        Waiting for the room owner to publish the final result.
+      </div>
+
+      {% if existing_prediction %}
+      <div class="p-3 bg-light rounded border text-center">
+        <p class="mb-0">
+          Your Submitted Prediction:
+          <strong>{{ existing_prediction.home_prediction }} - {{ existing_prediction.away_prediction }}</strong>
+        </p>
+      </div>
+
+      {% else %}
+      <p class="text-muted text-center">You did not submit a prediction for this room.</p>
+      {% endif %} {# Prediction form while room is still open #} {% else %}
+
+      <form method="POST" action="{{ url_for('predictions.submit', room_code=room.room_code) }}">
+        <div class="row">
+          <div class="col">
+            <label class="form-label"> {{ room.home_team }} </label>
+
+            <input
+              type="number"
+              name="home_prediction"
+              class="form-control"
+              min="0"
+              required
+              value="{% if existing_prediction %}{{ existing_prediction.home_prediction }}{% endif %}"
+            />
+          </div>
+
+          <div class="col">
+            <label class="form-label"> {{ room.away_team }} </label>
+
+            <input
+              type="number"
+              name="away_prediction"
+              class="form-control"
+              min="0"
+              required
+              value="{% if existing_prediction %}{{ existing_prediction.away_prediction }}{% endif %}"
+            />
+          </div>
+        </div>
+
+        {# Save or update prediction #}
+        <button type="submit" class="btn btn-success mt-3 w-100">
+          {% if existing_prediction %} Update Prediction {% else %} Save Prediction {% endif %}
+        </button>
+      </form>
+
+      {% endif %}
+    </div>
+  </div>
+</div>

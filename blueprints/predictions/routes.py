@@ -21,7 +21,6 @@ from . import predictions_bp
 )
 @login_required
 def submit(room_code):
-
     saved, message, room = submit_prediction_for_user(
         room_code,
         session["user_id"],
@@ -29,37 +28,10 @@ def submit(room_code):
     )
 
     if room is None:
+        flash(message, "danger")
+        return redirect(url_for("dashboard.home"))
 
-        flash(
-            message,
-            "danger",
-        )
+    category = "success" if saved else "warning"
+    flash(message, category)
 
-        return redirect(
-            url_for("dashboard.home")
-        )
-
-    if not saved:
-        flash(
-            message,
-            "warning",
-        )
-
-        return redirect(
-            url_for(
-                "rooms.details",
-                room_code=room.room_code,
-            )
-        )
-
-    flash(
-        message,
-        "success",
-    )
-
-    return redirect(
-        url_for(
-            "rooms.details",
-            room_code=room.room_code,
-        )
-    )
+    return redirect(url_for("rooms.details", room_code=room.room_code))

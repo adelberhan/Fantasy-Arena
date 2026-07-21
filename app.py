@@ -7,7 +7,6 @@ from config import Config
 from blueprints.dashboard import dashboard_bp
 from blueprints.auth import auth_bp
 from blueprints.rooms import rooms_bp
-from blueprints.profile import profile_bp
 from blueprints.predictions import predictions_bp
 
 from utils.json_storage import initialize_storage
