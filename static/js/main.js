@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+
+
+
 // Localstorage username retrieval and display
 const usernameElement = document.getElementById("username");
 
