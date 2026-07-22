@@ -127,13 +127,12 @@ Fantasy-Arena/
 - [x] It uses the Flask web framework.
 
   > > File: [app.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/app.py)
-  > > Line numbers: Line 20 (`app = Flask(__name__)`), Line 22 (`app.config.from_object(Config)`), Line 27 (`register_blueprints(app)`), Lines 40-41 (`if __name__ == "__main__": app.run(debug=True)`)
 
 - [x] It uses at least one module from the Python Standard Library other than the random module.
       Please provide the name of the module you are using in your app.
   - Module name: `datetime`
     > > File: [models/room.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/models/room.py)
-    > > Line numbers: Line 1 (`from datetime import datetime, timedelta`), Line 65 (`datetime.fromisoformat(match_datetime)`)
+    > > Line numbers: Line 1 (`from datetime import datetime, timedelta`)
 
 - [x] It contains at least one class written by you that has both properties and methods. It uses `__init__()` to let the class initialize the object's properties (note that `__init__()` doesn't count as a method). This includes instantiating the class and using the methods in your app.
       Please provide below the file name and the line number(s) of at least one example of a class definition in your code as well as the names of two properties and two methods.
@@ -182,8 +181,6 @@ Fantasy-Arena/
 
   > > File: [services/room_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/room_service.py) (Validating form and capturing errors)
   > > Line numbers: Lines 59-100 (`validate_room_form` intercepts invalid inputs and returns validation messages gracefully)
-  > > File: [templates/components/flash_messages.html](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/templates/components/flash_messages.html) (Client-side display)
-  > > Line numbers: Lines 1-5 (User interface rendering the flashed messages directly in the web browser instead of crashing or printing standard server stacktraces)
 
 - [x] It is styled using your own CSS.
 
