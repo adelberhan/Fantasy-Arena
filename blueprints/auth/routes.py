@@ -21,6 +21,7 @@ from services.auth_service import (
 from utils.validators import (
     validate_password,
     validate_username,
+    
 )
 
 from . import auth_bp
@@ -45,6 +46,13 @@ def register():
         if username_exists(username):
             flash(
                 "Username already exists.",
+                "danger",
+            )
+            return redirect(url_for("auth.register"))
+        
+        if validate_username(username):
+            flash(
+                "Username min length is 3.",
                 "danger",
             )
             return redirect(url_for("auth.register"))

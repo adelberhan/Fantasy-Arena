@@ -32,3 +32,13 @@ def validate_team_name(team):
         return False, "Team name is too short."
 
     return True, ""
+
+def validate_username(username):
+    """Validate username."""
+
+    username = username.strip()
+
+    if len(username) < 2:
+        return False, "Username must be at least 3 characters."
+
+    return True, ""

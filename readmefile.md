@@ -99,6 +99,7 @@ Fantasy-Arena/
 └── README.md
 ```
 
+
 ## Project Checklist
 
 - [x] It is available on GitHub.
@@ -114,11 +115,9 @@ Fantasy-Arena/
       Please provide the name of the module you are using in your app.
   - Module name: `datetime`
     > > File: [models/room.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/models/room.py)
-    > > Line numbers: Line 1 (`from datetime import datetime, timedelta`), Line 65 (`datetime.fromisoformat(match_datetime)`), Line 67 (`match - timedelta(minutes=5)`), Line 74 (`datetime.fromisoformat(self.deadline)`), Line 78 (`datetime.now() >= deadline`), Line 83 (`datetime.fromisoformat(self.match_datetime)`), Line 87 (`datetime.now() >= match_time`)
-    > > File: [utils/json_storage.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/utils/json_storage.py)
-    > > Line numbers: Line 1 (`import json`), Line 2 (`import os`), Line 3 (`from pathlib import Path`), Line 4 (`from tempfile import NamedTemporaryFile`)
+    > > Line numbers: Line 1 (`from datetime import datetime, timedelta`), Line 65 (`datetime.fromisoformat(match_datetime)`)
 
-- [x] It contains at least one class written by you that has both properties and methods. It uses `__init__()` to let the class initialize the object's attributes (note that `__init__()` doesn't count as a method). This includes instantiating the class and using the methods in your app.
+- [x] It contains at least one class written by you that has both properties and methods. It uses `__init__()` to let the class initialize the object's properties (note that `__init__()` doesn't count as a method). This includes instantiating the class and using the methods in your app.
       Please provide below the file name and the line number(s) of at least one example of a class definition in your code as well as the names of two properties and two methods.
   - File name for the class definition: `models/room.py`
   - Line number(s) for the class definition: Lines 4 to 91
@@ -135,65 +134,52 @@ Fantasy-Arena/
   > > Line numbers: Line 36 (`let username = localStorage.getItem("username")`), Line 42 (`localStorage.setItem("username", username)`), Line 53 (`localStorage.removeItem("username")`)
 
 - [x] It uses modern JavaScript (for example, let and const rather than var).
-
-  > > File: [static/js/main.js](static/js/main.js)
-  > > Line numbers: Line 6 (`let isAscending = true`), Line 36 (`let username = localStorage.getItem("username")`), Line 2 (`const sortBtn = document.getElementById(...)`), Line 3 (`const container = document.getElementById(...)`), Line 33 (`const usernameElement = document.getElementById(...)`), Line 50 (`const logoutButton = document.getElementById(...)`)
+  - File: `static/js/main.js`
+  - Line 36 (`let username = localStorage.getItem("username")`),Line 33 (`const usernameElement = document.getElementById(...)`)
 
 - [x] It makes use of the reading and writing to the same file feature.
 
   > > File: [utils/json_storage.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/utils/json_storage.py)
   > > Line numbers: Lines 28-40 (`load_json` reads from a JSON file path), Lines 43-72 (`save_json` writes atomically to the same JSON file path)
-  > > File: [services/room_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/room_service.py) (Reading and writing to rooms.json)
-  > > Line numbers: Line 114 (`load_json` read call), Line 135 (`save_json` write call to the same `rooms.json` file path)
-  > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/prediction_service.py) (Reading and writing to predictions.json)
-  > > Line numbers: Line 63 (`load_json` read call), Line 72 (`save_json` write call to the same `predictions.json` file path)
 
 - [x] It contains conditional statements. Please provide below the file name and the line number(s) of at least one example of a conditional statement in your code.
-  - File name: `services/prediction_service.py`
-  - Line number(s): Lines 119 to 150
-    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/prediction_service.py) (Lines 119-150)
+  - File name: `utils/validators.py`
+  - Line number(s): Lines 12 to 18
+    > > File: [utils/validators.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/utils/validators.py) (Lines 12-18)
 
 - [x] It contains loops. Please provide below the file name and the line number(s) of at least one example of a loop in your code.
-  - File name: `services/prediction_service.py`
+  - File name: `services/dashboard_service.py`
   - Line number(s): Lines 163 to 178
-    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/prediction_service.py) (Lines 163-178)
+    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/dashboard_service.py) (Lines 13-16)
 
 - [x] It lets the user enter a value in a text box at some point. This value is received and processed by your back end Python code.
 
   > > File: [templates/rooms/create.html](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/templates/rooms/create.html)
-  > > Line numbers: Line 17 (`<input type="text" name="room_name">` room name text box), Line 24 (`home_team` text box), Line 30 (`away_team` text box)
+  > > Line numbers: Line 17 (`<input type="text" name="room_name">` room name text box)
+
   > > File: [blueprints/rooms/routes.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/blueprints/rooms/routes.py)
-  > > Line numbers: Line 46 (`request.form` extracts the user values to pass to room builder logic)
+  > > Line numbers: Line 42 (`request.form` extracts the user values to pass to room builder logic)
 
 - [x] It doesn't generate any error message even if the user enters a wrong input.
 
   > > File: [services/room_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/room_service.py) (Validating form and capturing errors)
   > > Line numbers: Lines 59-100 (`validate_room_form` intercepts invalid inputs and returns validation messages gracefully)
-  > > File: [blueprints/rooms/routes.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/blueprints/rooms/routes.py) (Displaying validation failure status to the user)
-  > > Line numbers: Line 50 (`flash(message, "danger")`), Line 164 (`flash(message, "danger")`)
   > > File: [templates/components/flash_messages.html](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/templates/components/flash_messages.html) (Client-side display)
   > > Line numbers: Lines 1-5 (User interface rendering the flashed messages directly in the web browser instead of crashing or printing standard server stacktraces)
 
 - [x] It is styled using your own CSS.
 
   > > File: [static/css/style.css](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/static/css/style.css)
-  > > Line numbers: Lines 1-163 (Core styles, grid system, cards, hover animations, buttons styling)
-  > > File: [static/css/landing.css](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/static/css/landing.css)
-  > > Line numbers: Lines 1-76 (Landing page visual styling)
-  > > File: [static/css/navbar.css](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/static/css/navbar.css)
-  > > Line numbers: Lines 1-27 (Modern clean glassmorphism responsive navbar styling)
+  > > Line numbers: Lines 1-163 (Core styles)
 
 - [x] The code follows the code and style conventions as introduced in the course, is fully documented using comments and doesn't contain unused or experimental code. In particular, the code should not use `print()` or `console.log()` for any information the app user should see. Instead, all user feedback needs to be visible in the browser.
 
   > > File: [app.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/app.py)
   > > Line numbers: Lines 1-42 (Uses Flask application factories, error handlers, and modular Blueprint registrations, no debug prints)
-  > > File: [services/room_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/room_service.py)
-  > > Line numbers: Lines 1-345 (Fully documented helpers using docstrings and explanatory comments, no unused code, no print statement)
-  > > File: [templates/components/flash_messages.html](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/templates/components/flash_messages.html)
-  > > Line numbers: Lines 1-5 (User feedback is shown in browser alert blocks rather than using standard print or console logs)
 
 - [x] All exercises have been completed as per the requirements and pushed to the respective GitHub repository.
   > > GitHub Repository: [adelberhan/Fantasy-Arena](https://github.com/adelberhan/Fantasy-Arena.git)
+
 
 # 📡 Application Routes
 

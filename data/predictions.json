@@ -62,5 +62,13 @@
         "home_prediction": 1,
         "away_prediction": 4,
         "earned_points": 5
+    },
+    {
+        "id": "d6f8479b0d644c56b7e96658b59ed434",
+        "room_id": "7b5312b5b5334755b3d3c4f9b1a3dbdf",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 2,
+        "away_prediction": 8,
+        "earned_points": 5
     }
 ]
