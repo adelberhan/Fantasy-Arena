@@ -1,84 +1,90 @@
 <div class="row g-3 align-items-stretch mb-3">
-    <div class="col-lg-4">
-      <div class="card shadow-sm  h-100">
-        <div class="card-body">
-          <h5 class="card-title mb-3">🎯 Point System</h5>
+  <div class="col-lg-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <h5 class="card-title mb-3">🎯 Point System</h5>
 
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>🏆 Correct winner & exact score</span>
-              <span class="badge bg-success rounded-pill">5 pts</span>
-            </li>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>🏆 Correct winner & exact score</span>
+            <span class="badge bg-success rounded-pill">5 pts</span>
+          </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>🥈 Correct winner</span>
-              <span class="badge bg-primary rounded-pill">2 pts</span>
-            </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>🥈 Correct winner</span>
+            <span class="badge bg-primary rounded-pill">2 pts</span>
+          </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>🤝 Correct draw & exact score</span>
-              <span class="badge bg-info rounded-pill">3 pts</span>
-            </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>🤝 Correct draw & exact score</span>
+            <span class="badge bg-info rounded-pill">3 pts</span>
+          </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>➖ Draw predicted</span>
-              <span class="badge bg-warning text-dark rounded-pill">1 pt</span>
-            </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>➖ Draw predicted</span>
+            <span class="badge bg-warning text-dark rounded-pill">1 pt</span>
+          </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>❌ Incorrect prediction</span>
-              <span class="badge bg-secondary rounded-pill">0 pts</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-8">
-      <div class="card shadow-sm  h-100 ">
-        <div class="card-body text-center">
-          <h2>{{ room.room_name }}</h2>
-
-          <h3 class="match-header my-3">
-            <div class="team-content">
-              <img src="{{ room.home_logo }}" alt="{{ room.home_team }}" class="teams-icon" />
-              <span>{{ room.home_team }}</span>
-            </div>
-
-            <span class="vs-text">VS</span>
-
-            <div class="team-content">
-              <img src="{{ room.away_logo }}" alt="{{ room.away_team }}" class="teams-icon" />
-              <span>{{ room.away_team }}</span>
-            </div>
-          </h3>
-
-          {# Match date and prediction deadline #}
-          <p class="text-muted">
-            Match Date: {{ room.match_datetime }} <br />
-            Prediction Deadline: {{ room.deadline }}
-          </p>
-
-          {# Unique room code #}
-          <p>
-            Room Code:
-            <strong>{{ room.room_code }}</strong>
-          </p>
-
-          <!-- Owner-only actions (Edit & Delete) -->
-          {% if session["user_id"] == room.owner_id %}
-          <div class="d-flex justify-content-center gap-2 mt-3">
-            <a href="{{ url_for('rooms.edit', room_code=room.room_code) }}" class="btn btn-warning"> Edit </a>
-
-            <form
-              method="POST"
-              action="{{ url_for('rooms.delete', room_code=room.room_code) }}"
-              onsubmit="return confirm('Delete this room? This action cannot be undone.');"
-            >
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-          </div>
-          {% endif %}
-        </div>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>❌ Incorrect prediction</span>
+            <span class="badge bg-secondary rounded-pill">0 pts</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="col-lg-8">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h2>{{ room.room_name }}</h2>
+
+        <h3 class="match-header my-3">
+          <div class="team-content">
+            {%if room.home_logo %}
+            <img src="{{ room.home_logo }}" alt="{{ room.home_team }}" class="teams-icon" />
+            {% endif %}
+            <span>{{ room.home_team }}</span>
+          </div>
+
+          <span class="vs-text">VS</span>
+
+          <div class="team-content">
+            {%if room.home_logo %}
+
+            <img src="{{ room.away_logo }}" alt="{{ room.away_team }}" class="teams-icon" />
+            {% endif %}
+
+            <span>{{ room.away_team }}</span>
+          </div>
+        </h3>
+
+        {# Match date and prediction deadline #}
+        <p class="text-muted">
+          Match Date: {{ room.match_datetime }} <br />
+          Prediction Deadline: {{ room.deadline }}
+        </p>
+
+        {# Unique room code #}
+        <p>
+          Room Code:
+          <strong>{{ room.room_code }}</strong>
+        </p>
+
+        <!-- Owner-only actions (Edit & Delete) -->
+        {% if session["user_id"] == room.owner_id %}
+        <div class="d-flex justify-content-center gap-2 mt-3">
+          <a href="{{ url_for('rooms.edit', room_code=room.room_code) }}" class="btn btn-warning"> Edit </a>
+
+          <form
+            method="POST"
+            action="{{ url_for('rooms.delete', room_code=room.room_code) }}"
+            onsubmit="return confirm('Delete this room? This action cannot be undone.');"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

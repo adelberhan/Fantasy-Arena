@@ -5,7 +5,7 @@
         "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
         "home_prediction": 2,
         "away_prediction": 6,
-        "earned_points": 0
+        "earned_points": 2
     },
     {
         "id": "b6480375834d446ca3fa52f976c84af3",
@@ -54,5 +54,13 @@
         "home_prediction": 2,
         "away_prediction": 8,
         "earned_points": 0
+    },
+    {
+        "id": "6c7db583bd6941248c3af6bdaa6cfe3f",
+        "room_id": "11c9c64b05284d48aace1d0c8f0c9af3",
+        "user_id": "86370f9d249a47f887ebd1122db4791b",
+        "home_prediction": 1,
+        "away_prediction": 4,
+        "earned_points": 5
     }
 ]

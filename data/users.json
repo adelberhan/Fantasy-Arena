@@ -40,5 +40,12 @@
         "password": "scrypt:32768:8:1$ZKFl52KKraM4KxFu$e0aff76dbd1ceb163c4d45671eeebeb645bf374a3a6c6f70163536ce86eced618031d77aedcdfe3b260c485874f22ab38ddba8455c37b891552e7cb319f8cd73",
         "created_at": "2026-07-21T13:58:23",
         "updated_at": "2026-07-21T13:58:23"
+    },
+    {
+        "id": "86370f9d249a47f887ebd1122db4791b",
+        "username": "adel0",
+        "password": "scrypt:32768:8:1$On0tuBNxx4MbWpcV$f1d6b7a468563688594083c64b20af3d44c26b6abb0eda359f348cacaa6065c302db4f4e78e1dba6d48b66c6fa6a14f27d2a688526ed66aab08657aa606896f1",
+        "created_at": "2026-07-21T17:22:36",
+        "updated_at": "2026-07-21T17:22:36"
     }
 ]

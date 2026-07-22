@@ -81,7 +81,6 @@ def details(room_code):
 
     leaderboard = get_room_leaderboard(room.id)
     existing_prediction = get_prediction(room.id, session["user_id"])
-    # activity_logs = get_room_logs(room.room_code)
 
     return render_template(
         "rooms/details.html",
