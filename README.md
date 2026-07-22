@@ -47,13 +47,12 @@ Key packages include:
 
 - [x] It makes use of JavaScript in the front end and uses the localStorage of the web browser.
 
-  > > File: [static/js/main.js](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/static/js/main.js)
+  > > File: [static/js/main.js](static/js/main.js)
   > > Line numbers: Line 36 (`let username = localStorage.getItem("username")`), Line 42 (`localStorage.setItem("username", username)`), Line 53 (`localStorage.removeItem("username")`)
 
 - [x] It uses modern JavaScript (for example, let and const rather than var).
-
-  > > File: [static/js/main.js](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/static/js/main.js)
-  > > Line 36 (`let username = localStorage.getItem("username")`), Line 2 (`const sortBtn = document.getElementById(...)`)
+  - File: `static/js/main.js`
+  - Line 36 (`let username = localStorage.getItem("username")`),Line 33 (`const usernameElement = document.getElementById(...)`)
 
 - [x] It makes use of the reading and writing to the same file feature.
 
@@ -61,21 +60,22 @@ Key packages include:
   > > Line numbers: Lines 28-40 (`load_json` reads from a JSON file path), Lines 43-72 (`save_json` writes atomically to the same JSON file path)
 
 - [x] It contains conditional statements. Please provide below the file name and the line number(s) of at least one example of a conditional statement in your code.
-  - File name: `services/prediction_service.py`
-  - Line number(s): Lines 119 to 150
-    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/prediction_service.py) (Lines 119-150)
+  - File name: `utils/validators.py`
+  - Line number(s): Lines 12 to 18
+    > > File: [utils/validators.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/utils/validators.py) (Lines 12-18)
 
 - [x] It contains loops. Please provide below the file name and the line number(s) of at least one example of a loop in your code.
-  - File name: `services/prediction_service.py`
+  - File name: `services/dashboard_service.py`
   - Line number(s): Lines 163 to 178
-    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/prediction_service.py) (Lines 163-178)
+    > > File: [services/prediction_service.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/services/dashboard_service.py) (Lines 13-16)
 
 - [x] It lets the user enter a value in a text box at some point. This value is received and processed by your back end Python code.
 
   > > File: [templates/rooms/create.html](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/templates/rooms/create.html)
-  > > Line numbers: Line 17 (`<input type="text" name="room_name">` room name text box), Line 24 (`home_team` text box), Line 30 (`away_team` text box)
+  > > Line numbers: Line 17 (`<input type="text" name="room_name">` room name text box)
+
   > > File: [blueprints/rooms/routes.py](file:///d:/Docements/Web_dev/RemoteCoders/Fantasy%20Arena/blueprints/rooms/routes.py)
-  > > Line numbers: Line 46 (`request.form` extracts the user values to pass to room builder logic)
+  > > Line numbers: Line 42 (`request.form` extracts the user values to pass to room builder logic)
 
 - [x] It doesn't generate any error message even if the user enters a wrong input.
 
