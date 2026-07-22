@@ -50,7 +50,7 @@ def register():
             )
             return redirect(url_for("auth.register"))
         
-        if validate_username(username):
+        if not validate_username(username):
             flash(
                 "Username min length is 3.",
                 "danger",

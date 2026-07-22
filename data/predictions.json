@@ -51,7 +51,7 @@
         "id": "9e79b3931e3544ba8deacc27a25b444e",
         "room_id": "f8a02a4d66204c3b86d5ee31b95ceeca",
         "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
-        "home_prediction": 2,
+        "home_prediction": 0,
         "away_prediction": 8,
         "earned_points": 0
     },
@@ -70,5 +70,29 @@
         "home_prediction": 2,
         "away_prediction": 8,
         "earned_points": 5
+    },
+    {
+        "id": "6fd1b96b8f04499fb1531b9e9bd39d4d",
+        "room_id": "f8a02a4d66204c3b86d5ee31b95ceeca",
+        "user_id": "113f6ac4ff254a9999950918fcff4a83",
+        "home_prediction": 12,
+        "away_prediction": 12,
+        "earned_points": 0
+    },
+    {
+        "id": "e3970d1b0e7540c9a5f4beff205427b4",
+        "room_id": "d687249e116a4f4aa5e94a3b66997de5",
+        "user_id": "113f6ac4ff254a9999950918fcff4a83",
+        "home_prediction": 22,
+        "away_prediction": 0,
+        "earned_points": 5
+    },
+    {
+        "id": "2ff8401715254803abc41cd8edfb0ce8",
+        "room_id": "d687249e116a4f4aa5e94a3b66997de5",
+        "user_id": "3d240ccdcf754d7fbc4c34b23eb38731",
+        "home_prediction": 9,
+        "away_prediction": 5,
+        "earned_points": 2
     }
 ]
