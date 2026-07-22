@@ -1,0 +1,40 @@
+  <div class="card shadow-sm mb-4">
+    <div class="card-header">Match Result</div>
+
+    <div class="card-body">
+      {# Result already submitted #} {% if room.home_score is not none and room.away_score is not none %}
+
+      <div class="alert alert-success text-center mb-0" role="alert">
+        Match result has been submitted:
+        <strong>{{ room.home_team }} {{ room.home_score }} - {{ room.away_score }} {{ room.away_team }}</strong>
+      </div>
+
+      {# Match hasn't finished yet #} {% elif not room.match_ended() %}
+
+      <div class="alert alert-info text-center mb-0" role="alert">
+        Match result can be submitted after the match ends (at {{ room.match_datetime }}).
+      </div>
+
+      {# Form to submit the final score #} {% else %}
+
+      <form method="POST" action="{{ url_for('rooms.result', room_code=room.room_code) }}">
+        <div class="row">
+          <div class="col">
+            <label class="form-label"> {{ room.home_team }} </label>
+
+            <input type="number" name="home_score" class="form-control" min="0" required />
+          </div>
+
+          <div class="col">
+            <label class="form-label"> {{ room.away_team }} </label>
+
+            <input type="number" name="away_score" class="form-control" min="0" required />
+          </div>
+        </div>
+
+        <button class="btn btn-primary mt-3">Save Result</button>
+      </form>
+
+      {% endif %}
+    </div>
+  </div>

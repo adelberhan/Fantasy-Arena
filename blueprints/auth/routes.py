@@ -3,13 +3,14 @@ from flask import (
     redirect,
     render_template,
     request,
-    url_for,session,
+    url_for,
+    session,
 )
 from utils.decorators import (
     guest_required,
     login_required,
 )
- 
+
 from services.auth_service import authenticate_user
 
 from services.auth_service import (
@@ -93,11 +94,6 @@ def login():
         session["user_id"] = user.id
         session["username"] = user.username
 
-        flash(
-            f"Welcome {user.username}!",
-            "success",
-        )
-
         return redirect(url_for("dashboard.home"))
 
     return render_template("auth/login.html")
@@ -109,11 +105,4 @@ def logout():
 
     session.clear()
 
-    flash(
-        "Logged out successfully.",
-        "success",
-    )
-
-    return redirect(
-        url_for("landing.index")
-    )
+    return redirect(url_for("landing.index"))

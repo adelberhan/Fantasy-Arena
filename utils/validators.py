@@ -3,7 +3,7 @@ def validate_username(username):
 
     username = username.strip()
 
-    if len(username) < 3:
+    if len(username) < 2:
         return False, "Username must be at least 3 characters."
 
     return True, ""
